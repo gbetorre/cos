@@ -1,20 +1,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.jfinal</groupId>
+	<groupId>com.oreilly.servlet</groupId>
 	<artifactId>cos</artifactId>
 	<packaging>jar</packaging>
 	<name>Cos</name>
-	<version>2017.5-SNAPSHOT</version>
-	<url>https://github.com/jfinal/cos</url>
+	<version>2025.7-SNAPSHOT</version>
+	<url>https://github.com/gbetorre/cos</url>
 	<description>Cos</description>
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    	<maven.compiler.source>8</maven.compiler.source>
+    	<maven.compiler.target>8</maven.compiler.target>
 	</properties>
 	
 	<issueManagement>
 		<system>Github Issue</system>
-		<url>http://github.com/jfinal/cos/issues</url>
+		<url>http://github.com/gbetorre/cos/issues</url>
 	</issueManagement>
 	<licenses>
 		<license>
@@ -35,15 +37,10 @@
 		<developerConnection>scm:git:git@github.com:jfinal/cos.git</developerConnection>
 		<url>git@github.com:jfinal/cos.git</url>
 	</scm>
-	
-	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>7</version>
-	</parent>
 
 	<repositories>
 	</repositories>
+	
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -52,18 +49,18 @@
 			<scope>test</scope>
 		</dependency>
 		
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>javax.servlet.jsp.jstl</groupId>
-			<artifactId>javax.servlet.jsp.jstl-api</artifactId>
-			<version>1.2.1</version>
-			<scope>provided</scope>
-		</dependency>
+	    <dependency>
+	        <groupId>jakarta.servlet</groupId>
+	        <artifactId>jakarta.servlet-api</artifactId>
+	        <version>5.0.0</version>
+	        <scope>provided</scope>
+	    </dependency>
+	    <dependency>
+	      <groupId>jakarta.servlet.jsp</groupId>
+	      <artifactId>jakarta.servlet.jsp-api</artifactId>
+	      <version>3.0.0</version> <!-- or latest compatible version -->
+	      <scope>provided</scope>
+	    </dependency>
 	</dependencies>
 	
 	<build>
@@ -90,8 +87,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.5</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 
