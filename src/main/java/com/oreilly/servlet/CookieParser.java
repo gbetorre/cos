@@ -4,10 +4,10 @@
 
 package com.oreilly.servlet;
 
-import java.io.*;
-import java.util.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import java.util.Hashtable;
+
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 
 /** 
  * A class to simplify cookie retrieval.  It can retrieve cookie values by

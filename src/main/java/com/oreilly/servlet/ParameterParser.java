@@ -4,9 +4,10 @@
 
 package com.oreilly.servlet;
 
-import java.io.*;
-import java.util.*;
-import javax.servlet.*;
+import java.io.UnsupportedEncodingException;
+import java.util.Vector;
+
+import jakarta.servlet.ServletRequest;
 
 /** 
  * A class to simplify parameter handling.  It can return parameters of
