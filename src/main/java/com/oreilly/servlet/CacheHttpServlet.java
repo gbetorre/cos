@@ -4,10 +4,24 @@
 
 package com.oreilly.servlet;
 
-import java.io.*;
-import java.util.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.util.Collection;
+import java.util.Enumeration;
+import java.util.Hashtable;
+import java.util.Locale;
+import java.util.Vector;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.WriteListener;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 /** 
  * A superclass for HTTP servlets that wish to have their output 
@@ -395,6 +409,36 @@ class CacheHttpServletResponse implements HttpServletResponse {
   public String encodeRedirectUrl(String url) { 
     return this.encodeRedirectURL(url);
   }
+
+  @Override
+  public void setContentLengthLong(long len) {
+	// TODO Auto-generated method stub
+	
+  }
+
+  @Override
+  public int getStatus() {
+	// TODO Auto-generated method stub
+	return 0;
+  }
+
+  @Override
+  public String getHeader(String name) {
+	// TODO Auto-generated method stub
+	return null;
+  }
+
+  @Override
+  public Collection<String> getHeaders(String name) {
+	// TODO Auto-generated method stub
+	return null;
+  }
+
+  @Override
+  public Collection<String> getHeaderNames() {
+	// TODO Auto-generated method stub
+	return null;
+  }
 }
 
 class CacheServletOutputStream extends ServletOutputStream {
@@ -424,5 +468,17 @@ class CacheServletOutputStream extends ServletOutputStream {
   public void write(byte buf[], int offset, int len) throws IOException {
     delegate.write(buf, offset, len);
     cache.write(buf, offset, len);
+  }
+
+  @Override
+  public boolean isReady() {
+	// TODO Auto-generated method stub
+	return false;
+  }
+
+  @Override
+  public void setWriteListener(WriteListener writeListener) {
+	// TODO Auto-generated method stub
+	
   }
 }
