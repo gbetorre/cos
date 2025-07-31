@@ -59,7 +59,7 @@ In order to make the `cos` library compatible with the new Jakarta EE namespace,
     to:<br> 
     `import jakarta.servlet.http.HttpServlet;`
 
-- Implementing the inherited abstract method where necessary.
+- Implementing the inherited abstract method - even as stubs - where necessary.
 
 2. In order to compile the project for Jakarta EE, of course you must also update Maven (or Gradle) dependencies accordingly to Jakarta EE 9+ versions of the Servlet API:
 
@@ -128,7 +128,12 @@ Thus, there is no intention here to criticize the writing work done at the time 
 Simply, it must be kept in mind that some choices are to be placed in the historical period in which they were made.
 Also, I personally do not intend to alter the original work more than that, simply making the library compatible with the modern Servlet API but not reformulating the writing style.
 
+## About the project
+
 The purpose of this porting is, in fact, plain and simple, to make this library available for use after the transition of the Tomcat implementation following the transfer of Java EE to the Eclipse Foundation.
+
+Of course, Apache Tomcat provides a migration tool to do this, but having a ready-made library doesn't have to be so bad, right?
+
 Furthermore, `cos` is just a tool used by a niche of developers and is used to continue to keep the code up and running without having to waste time even making adjustments: God only knows how much time and stress migrations and new project startups entail.
 
 Therefore, I hope that this porting from Java EE to Jakarta EE will be useful for some of us programmers and, if so, I ask that you put a star on this project, please.
