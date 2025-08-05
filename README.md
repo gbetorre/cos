@@ -59,6 +59,12 @@ In order to make the `cos` library compatible with the new Jakarta EE namespace,
     to:<br> 
     `import jakarta.servlet.http.HttpServlet;`
 
+- Paying attention to internal dependecies
+
+![Eclipse IDE during the porting](multpart.png)
+
+***Figure.1 - If there are internal dependencies, and the classes we are calling have not been updated yet, the calling classes - passing the new objects - will generate errors***
+
 - Implementing the inherited abstract method - even as stubs - where necessary.
 
 2. In order to compile the project for Jakarta EE, of course you must also update Maven (or Gradle) dependencies accordingly to Jakarta EE 9+ versions of the Servlet API:

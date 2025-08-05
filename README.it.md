@@ -57,6 +57,12 @@ Al fine di rendere compatibile la libreria `cos` con il nuovo namespace di Jakar
     a:<br> 
     `import jakarta.servlet.http.HttpServlet;`
 
+- Prestare attenzione alle dipendenze interne
+
+![Eclipse nel corso del porting](multpart.png)
+
+***Figura.1 - Se ci sono dipendenze interne, e le classi che stiamo chiamando non sono ancora state aggiornate, le classi chiamanti, passando i nuovi oggetti, genereranno errori***
+
 - Implementare i metodi astratti ereditati (anche in forma di stub) ove necessario.
 
 2. Per poter compilare il progetto per Jakarta EE, naturalmente bisogna anche **far riferimento ai namespace Jakarta EE 9+ nella configurazione di Maven:**
