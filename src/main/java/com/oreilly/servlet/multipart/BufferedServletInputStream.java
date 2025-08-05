@@ -6,7 +6,8 @@ package com.oreilly.servlet.multipart;
 
 import java.io.IOException;
 
-import javax.servlet.ServletInputStream;
+import jakarta.servlet.ReadListener;
+import jakarta.servlet.ServletInputStream;
 
 /**
  * A <code>BufferedServletInputStream</code> wraps a 
@@ -194,5 +195,23 @@ public class BufferedServletInputStream extends ServletInputStream {
       total += copy;
     }
     return total;
+  }
+
+  @Override
+  public boolean isFinished() {
+	// TODO Auto-generated method stub
+	return false;
+  }
+
+  @Override
+  public boolean isReady() {
+	// TODO Auto-generated method stub
+	return false;
+  }
+
+  @Override
+  public void setReadListener(ReadListener readListener) {
+	// TODO Auto-generated method stub
+	
   }
 }
