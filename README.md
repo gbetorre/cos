@@ -8,7 +8,7 @@
 
 # cos
 
-Porting of a classic utility Java EE API to make it compliance with Servlet 5.0
+Porting of a classic utility Java EE API to make it compliance with Servlet 5.0 and Jakarta EE 9+
 
 # History
 
@@ -39,7 +39,7 @@ The problem is that, as also reported in the documentation, starting with versio
 >  as a result of the move from Java EE to Jakarta EE as part of the transfer of Java EE to the Eclipse Foundation, the primary package for all implemented APIs has changed from javax.* to jakarta.*. This will almost certainly require code changes to enable applications to migrate from Tomcat 9 and earlier to Tomcat 10 and later. 
 > A migration tool is available to aid this process.
 
-Which means that if you do not migrate, applications written to and running under Tomcat 9, in Tomcat 10 and later will no longer work.
+Which means that, if you do not migrate, applications running under Tomcat 9 will no longer work in Tomcat 10 and later.
 
 Summarizing:
 - Since **Tomcat 10**, the Servlet API package has changed from **`javax.servlet.*` to `jakarta.servlet.*`** due to the **Jakarta EE namespace migration**.
@@ -67,7 +67,7 @@ In order to make the `cos` library compatible with the new Jakarta EE namespace,
 
 - Implementing the inherited abstract method - even as stubs - where necessary.
 
-2. In order to compile the project for Jakarta EE, of course you must also update Maven (or Gradle) dependencies accordingly to Jakarta EE 9+ versions of the Servlet API:
+2. In order to compile the project for Jakarta EE, of course, you must also update Maven (or Gradle) dependencies accordingly to Jakarta EE 9+ versions of the Servlet API:
 
 ```XML    
     <dependency> 
@@ -80,13 +80,11 @@ In order to make the `cos` library compatible with the new Jakarta EE namespace,
 
 and recompile.
 
-The purpose of this repository is to do the first step for you, making the job of the programmer who likes to use the `cos` library easier and saving him some time (since I have already done it for my own projects).
-
-If this repo helped you, or you liked it, I would appreciate if you would put a star on the project!
+The purpose of [this repository](https://github.com/gbetorre/cos) is to do the first step for you, making easier the job of the programmer who likes to use the `cos` library and saving him some time (I have to do this anyway, so I can continue using it in my projects).
 
 # Examples
 
-One of the features of `cos` which is very useful is - among the others - the HttpServletRequest parameters management made by the class 
+One of the features of `cos` which is very useful - among the others - is the HttpServletRequest parameters management made by the class 
 `com.oreilly.servlet.ParameterParser`:
 
 ```JAVA
@@ -117,6 +115,9 @@ struct.put("liv4",  parser.getStringParameter("sliv4", VOID_STRING));
 ```
 ***List.2 - Exaple of ParameterParser use directly in HashMap***
 
+I love Java, but we have to face that it's a programming language that quickly tends to become verbose and boilerplate.
+As you can see in the example above, this library object makes Java syntax a little more streamlined than it naturally is...
+
 ## About the style
 
 If you will examine carefully the sources of the `cos` repository, you will notice that, comparing to modern standards, the syntax adopted in these classes is now somewhat outdated.
@@ -132,17 +133,17 @@ It is normal that the potential of modern Java syntax is not exploited here, sin
 
 Thus, there is no intention here to criticize the writing work done at the time by the author.
 Simply, it must be kept in mind that some choices are to be placed in the historical period in which they were made.
-Also, I personally do not intend to alter the original work more than that, simply making the library compatible with the modern Servlet API but not reformulating the writing style.
+Also, I personally do not intend to alter the original work more than that, simply making the library compatible with the modern Servlet API.
 
 ## About the project
 
 The purpose of this porting is, in fact, plain and simple, to make this library available for use after the transition of the Tomcat implementation following the transfer of Java EE to the Eclipse Foundation.
 
-Of course, Apache Tomcat provides a migration tool to do this, but having a ready-made library doesn't have to be so bad, right?
+Of course, Apache Tomcat provides a migration tool to do this; but, having a ready-made library doesn't have to be so bad, right?
 
 Furthermore, `cos` is just a tool used by a niche of developers and is used to continue to keep the code up and running without having to waste time even making adjustments: God only knows how much time and stress migrations and new project startups entail.
 
-Therefore, I hope that this porting from Java EE to Jakarta EE will be useful for some of us programmers and, if so, I ask that you put a star on this project, please.
+Therefore, I hope that this porting from Java EE to Jakarta EE will be useful for some of us programmers; if so, please consider starring it.
 
 # License
 
