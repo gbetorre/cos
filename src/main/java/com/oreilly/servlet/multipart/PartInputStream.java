@@ -6,7 +6,8 @@ package com.oreilly.servlet.multipart;
 
 import java.io.FilterInputStream;
 import java.io.IOException;
-import javax.servlet.ServletInputStream;
+
+import jakarta.servlet.ServletInputStream;
 
 /**
  * A <code>PartInputStream</code> filters a <code>ServletInputStream</code>, 
