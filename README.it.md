@@ -50,14 +50,14 @@ Riassumendo:
 
 Al fine di rendere compatibile la libreria `cos` con il nuovo namespace di Jakarta EE, bisogna effettuare sui sorgenti le operazioni seguenti:
 
-1. **Editare tutti i files sorgenti:**
+## Editare tutti i files sorgenti
 
-- Cambiare tutti gli import da:<br> 
+1. Cambiare tutti gli import da:<br> 
     `import javax.servlet.http.HttpServlet;`<br> 
     a:<br> 
     `import jakarta.servlet.http.HttpServlet;`
 
-- Prestare attenzione alle dipendenze interne
+Prestare attenzione alle dipendenze interne:
 
 ![Eclipse nel corso del porting](multpart.png)
 
@@ -66,9 +66,22 @@ Al fine di rendere compatibile la libreria `cos` con il nuovo namespace di Jakar
 > Nell'esempio riportato in Figura.1, il tipo dell'oggetto ServletRequest &egrave; quello corretto; esso, infatti, fa riferimento al package aggiornato `jakarta.servlet` invece che `javax.servlet` (come si pu&ograve; vedere nel Javadoc in basso).<br> 
 > Tuttavia, la classe `MultipartFilter` presenta ancora un errore che ne impedisce la compilazione, perch&eacute; la classe `MultipartWrapper`, da essa usata alla riga 61, si aspetta come parametro una `javax.servlet.ServletRequest` e non una `jakarta.servlet.ServletRequest`, dal momento che la classe MultipartFilter è stata corretta ma la classe richiamata, MultipartWrapper, non ancora.
 
-- Implementare i metodi astratti ereditati (anche in forma di stub) ove necessario.
+2. Implementare i metodi astratti ereditati (inizialmente anche in forma di stub) ove necessario.
 
-2. Per poter compilare il progetto per Jakarta EE, naturalmente bisogna anche **far riferimento ai namespace Jakarta EE 9+ nella configurazione di Maven:**
+Jakarta EE 9+ ha introdotto nelle classi e nelle interfacce pre-esistenti molti nuovi metodi astratti che il codice di una classe migrata da Java EE a Jakarta EE ***deve*** implementare.
+
+Siccome le mie applicazioni usano solamente un piccolissimo sottoinsieme delle classi offerte dalla libreria cos, non ho avuto necessità di implementare i nuovi metodi né di testare estesamente il lavoro di porting. Questo approccio rimarrà anche nella release della libreria a porting terminato.
+
+***FARE ATTENZIONE USANDO GLI STUB!***<br>
+Implementare sotto forma di stub (quindi come delle scatole vuote) i nuovi metodi astratti ereditati dalle superclassi delle Jakarta Servlet API pu&ograve; essere accettabile temporaneamente ma potrebbe creare futuri problemi. 
+
+Io per&ograve; non posso mettermi ad approfondire la questione e rivedere tutte le classi di questa API: questo repository, infatti, non &egrave; un servizio fornito da un'azienda o da un consulente retribuito, ma solo lo sforzo di un volontario per rendere un po' più aggiornata una vecchia libreria, nei limiti di un lavoro fatto per pura passione e offerto come contributo alla comunità degli sviluppatori.
+
+***Pertanto, non mi assumo alcuna responsabilità per eventuali problemi e operazioni errate causate dalle classi modificate nel contesto di questo porting.***
+
+## Aggiornare il build descriptor
+
+Per poter compilare il progetto per Jakarta EE, naturalmente bisogna anche **far riferimento ai namespace Jakarta EE 9+ nella configurazione di Maven:**
 
 ```XML    
     <dependency> 

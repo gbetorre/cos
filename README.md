@@ -52,14 +52,14 @@ Summarizing:
 
 In order to make the `cos` library compatible with the new Jakarta EE namespace, the following operations must be performed on the sources:
 
-1. **Editing of all source files:**
+## Editing of all source files
 
-- Changing all imports from:<br> 
+1. **Changing all imports from:**<br> 
     `import javax.servlet.http.HttpServlet;`<br> 
     to:<br> 
     `import jakarta.servlet.http.HttpServlet;`
 
-- Paying attention to internal dependecies
+ Paying attention to internal dependecies:
 
 ![Eclipse IDE during the porting](multpart.png)
 
@@ -68,9 +68,34 @@ In order to make the `cos` library compatible with the new Jakarta EE namespace,
 > In the example above, the type of the ServletRequest object is already correct; in fact, it references the updated `jakarta.servlet` package instead of `javax.servlet` (as can be seen in the Javadoc below).<br> 
 > However, the `MultipartFilter` class still has an error that prevents it from being compiled, because the `MultipartWrapper` class, used by it on line 61, expects a `javax.servlet.ServletRequest` (to be precise, a `javax.servlet.http.HttpServletRequest` which is a specialized interface extending ServletRequest) and not a `jakarta.servlet.ServletRequest` as a parameter, since the MultipartFilter class has been corrected whilst the MultipartWrapper - that is the called class - not yet.
 
-- Implementing the inherited abstract method - even as stubs - where necessary.
+2. **Implementing the inherited abstract method - at first even as stubs - where necessary.**
 
-2. In order to compile the project for Jakarta EE, of course, you must also update Maven (or Gradle) dependencies accordingly to Jakarta EE 9+ versions of the Servlet API:
+Jakarta EE 9+ introduced several new abstract methods in existing classes and interfaces that your code must implement.
+
+Because my applications only use a very small subset of the classes offered by the cos library, I did not need to implement the new methods or test the porting work extensively. This approach will remain in the library release after porting is complete.
+
+***SO, CAREFULLY USING STUBS!***<br> 
+Implementing the new abstract methods from Jakarta Servlet API classes like ServletInputStream just as stubs (empty or trivial implementations) can be acceptable **as a temporary or minimal fix, but it may create further issues** depending on runtime use and server expectations.
+
+For instance:
+1. Non-blocking I/O expectations:
+- Methods like isFinished(), isReady(), and setReadListener(ReadListener) in class BufferedServletInputStream are related to asynchronous and non-blocking I/O support introduced in Servlet 3.1+.
+- Returning conservative stub values (isFinished()=false and no-op setReadListener) may work in synchronous scenarios.
+- If your server or framework uses non-blocking async features, the stubs may cause incorrect behavior, unexpected blocking, or ignored async events.
+2. Incorrect or incomplete contract implementation:
+- The stub methods do not reflect the real state of the stream.
+- This could cause the container or filters to misbehave if they check isFinished() or call back on read listeners.
+3. Future compatibility and maintenance:
+- As servlet containers evolve, they might rely more on these methods.
+- Stub implementation could even work right now but may need revisiting or proper implementation later.
+
+This repository is not a service provided by a company or a paid consultant but only the effort of volunteers to make an old library a little more up-to-date, within the limits of work done out just for passion and offered as a contribution to the developer community.
+
+***Therefore, this software is provided 'AS IS' and I take no responsibility for any problems and incorrect operation caused by the classes modified for this porting.***
+
+## Updating the build descriptor
+
+In order to compile the project for Jakarta EE, of course, you must also update Maven (or Gradle) dependencies accordingly to Jakarta EE 9+ versions of the Servlet API:
 
 ```XML    
     <dependency> 
