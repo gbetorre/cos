@@ -4,11 +4,13 @@
 
 package com.oreilly.servlet;
 
-import java.io.*;
-import java.net.*;
-import java.util.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
 
 /** 
  * A superclass for HTTP servlets that wish to accept raw socket 
