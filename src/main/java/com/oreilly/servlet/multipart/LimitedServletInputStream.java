@@ -6,7 +6,8 @@ package com.oreilly.servlet.multipart;
 
 import java.io.IOException;
 
-import javax.servlet.ServletInputStream;
+import jakarta.servlet.ReadListener;
+import jakarta.servlet.ServletInputStream;
 
 /**
  * A <code>LimitedServletInputStream</code> wraps another 
@@ -107,5 +108,23 @@ public class LimitedServletInputStream extends ServletInputStream {
       totalRead += result;
     }
     return result;    
+  }
+
+  @Override
+  public boolean isFinished() {
+	// TODO Auto-generated method stub
+	return false;
+  }
+
+  @Override
+  public boolean isReady() {
+	// TODO Auto-generated method stub
+	return false;
+  }
+
+  @Override
+  public void setReadListener(ReadListener readListener) {
+	// TODO Auto-generated method stub
+	
   }
 }
