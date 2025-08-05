@@ -63,6 +63,9 @@ Al fine di rendere compatibile la libreria `cos` con il nuovo namespace di Jakar
 
 ***Figura.1 - Se ci sono dipendenze interne, e le classi che stiamo chiamando non sono ancora state aggiornate, le classi chiamanti, passando i nuovi oggetti, genereranno errori***
 
+> Nell'esempio riportato in Figura.1, il tipo dell'oggetto ServletRequest &egrave; quello corretto; esso, infatti, fa riferimento al package aggiornato `jakarta.servlet` invece che `javax.servlet` (come si pu&ograve; vedere nel Javadoc in basso).<br> 
+> Tuttavia, la classe `MultipartFilter` presenta ancora un errore che ne impedisce la compilazione, perch&eacute; la classe `MultipartWrapper`, da essa usata alla riga 61, si aspetta come parametro una `javax.servlet.ServletRequest` e non una `jakarta.servlet.ServletRequest`, dal momento che la classe MultipartFilter è stata corretta ma la classe richiamata, MultipartWrapper, non ancora.
+
 - Implementare i metodi astratti ereditati (anche in forma di stub) ove necessario.
 
 2. Per poter compilare il progetto per Jakarta EE, naturalmente bisogna anche **far riferimento ai namespace Jakarta EE 9+ nella configurazione di Maven:**

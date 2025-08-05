@@ -65,6 +65,9 @@ In order to make the `cos` library compatible with the new Jakarta EE namespace,
 
 ***Figure.1 - If there are internal dependencies, and the classes we are calling have not been updated yet, the calling classes - passing the new objects - will generate errors***
 
+> In the example above, the type of the ServletRequest object is already correct; in fact, it references the updated `jakarta.servlet` package instead of `javax.servlet` (as can be seen in the Javadoc below).<br> 
+> However, the `MultipartFilter` class still has an error that prevents it from being compiled, because the `MultipartWrapper` class, used by it on line 61, expects a `javax.servlet.ServletRequest` (to be precise, a `javax.servlet.http.HttpServletRequest` which is a specialized interface extending ServletRequest) and not a `jakarta.servlet.ServletRequest` as a parameter, since the MultipartFilter class has been corrected whilst the MultipartWrapper - that is the called class - not yet.
+
 - Implementing the inherited abstract method - even as stubs - where necessary.
 
 2. In order to compile the project for Jakarta EE, of course, you must also update Maven (or Gradle) dependencies accordingly to Jakarta EE 9+ versions of the Servlet API:
