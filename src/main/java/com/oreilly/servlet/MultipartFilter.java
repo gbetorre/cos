@@ -5,8 +5,8 @@
 package com.oreilly.servlet;
 
 import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
 
 /**
  * A filter for easy semi-automatic handling of multipart/form-data requests 
