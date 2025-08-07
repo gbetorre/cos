@@ -4,14 +4,14 @@
 
 package com.oreilly.servlet;
 
-import java.io.*;
-import java.net.*;
-import java.rmi.*;
-import java.rmi.server.*;
-import java.rmi.registry.*;
-import java.util.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
+
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
 
 /** 
  * A superclass for any HTTP servlet that wishes to act as an RMI server

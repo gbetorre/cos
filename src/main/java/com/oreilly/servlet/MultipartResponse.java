@@ -4,9 +4,10 @@
 
 package com.oreilly.servlet;
 
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import java.io.IOException;
+
+import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServletResponse;
 
 /** 
  * A utility class to generate <tt>multipart/x-mixed-replace</tt> responses,
