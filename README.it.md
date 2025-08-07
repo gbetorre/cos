@@ -79,6 +79,15 @@ Io per&ograve; non posso mettermi ad approfondire la questione e rivedere tutte 
 
 ***Pertanto, non mi assumo alcuna responsabilità per eventuali problemi e operazioni errate causate dalle classi modificate nel contesto di questo porting.***
 
+___
+
+NOTA: le classi di questo repository che contengono metodi astratti ereditati che sono stati implementati sotto forma di stub, e che **devono essere controllate prima di usare questo porting della libreria `cos` in ambiente di produzione** - ricevendo eventualmente una opportuna implementazione -, sono le seguenti:
+
+- `src/main/java/com/oreilly/servlet/CacheHttpServlet.java`
+- `src/main/java/com/oreilly/servlet/multipart/BufferedServletInputStream.java`
+- `src/main/java/com/oreilly/servlet/multipart/LimitedServletInputStream.java`
+
+
 ## Aggiornare il build descriptor
 
 Per poter compilare il progetto per Jakarta EE, naturalmente bisogna anche **far riferimento ai namespace Jakarta EE 9+ nella configurazione di Maven:**

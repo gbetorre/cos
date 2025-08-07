@@ -93,6 +93,15 @@ This repository is not a service provided by a company or a paid consultant but 
 
 ***Therefore, this software is provided 'AS IS' and I take no responsibility for any problems and incorrect operation caused by the classes modified for this porting.***
 
+___
+
+NOTE: the classes of this repository containing inherited abstract methods implemented as stubs, that **must be checked before using the library in production** and, as necessary, receive reasonable implementation, are the following:
+
+- `src/main/java/com/oreilly/servlet/CacheHttpServlet.java`
+- `src/main/java/com/oreilly/servlet/multipart/BufferedServletInputStream.java`
+- `src/main/java/com/oreilly/servlet/multipart/LimitedServletInputStream.java`
+
+
 ## Updating the build descriptor
 
 In order to compile the project for Jakarta EE, of course, you must also update Maven (or Gradle) dependencies accordingly to Jakarta EE 9+ versions of the Servlet API:
