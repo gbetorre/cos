@@ -128,7 +128,7 @@ public class ServletUtils {
   /**
    * Gets a reference to the named servlet, attempting to load it 
    * through an HTTP request if necessary.  Returns null if there's a problem.
-   * This method behaves similarly to <tt>ServletContext.getServlet()</tt>
+   * This method behaves similarly to <code>ServletContext.getServlet()</code>
    * except, while that method may return null if the 
    * named servlet wasn't already loaded, this method tries to load 
    * the servlet using a dummy HTTP request.  Only loads HTTP servlets.
