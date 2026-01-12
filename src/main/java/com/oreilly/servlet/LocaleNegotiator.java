@@ -15,13 +15,13 @@ import com.oreilly.servlet.LocaleToCharsetMap;
  * with the response.
  * <p>
  * LocaleNegotiator works by scanning through the client's language 
- * preferences (sent by browsers in the <tt>Accept-Language</tt> header) 
+ * preferences (sent by browsers in the <code>Accept-Language</code> header) 
  * looking for any 
  * language for which there exists is a corresponding resource bundle.
  * When it finds a correspondence, it uses the LocaleToCharsetMap class
  * to determine the charset.  If there's any problem, it tries to fall 
  * back to US English.  The logic currently ignores the client's charset 
- * preferences (sent in the <tt>Accept-Charset</tt> header).
+ * preferences (sent in the <code>Accept-Charset</code> header).
  * <p>
  * It can be used like this:
  * <blockquote><pre>
