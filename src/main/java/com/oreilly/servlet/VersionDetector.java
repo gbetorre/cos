@@ -15,6 +15,7 @@ package com.oreilly.servlet;
  * String servletVersion = VersionDetector.getServletVersion();
  * &nbsp;
  * String javaVersion = VersionDetector.getJavaVersion();
+ * </pre></blockquote>
  *
  * @author <b>Jason Hunter</b>, Copyright &#169; 2000
  * @version 1.3, 2002/04/22, added detection of JDK 1.5 and Servlet API 2.4
