@@ -1,46 +1,60 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.oreilly.servlet</groupId>
+	<groupId>com.gbetorre</groupId>
 	<artifactId>cos</artifactId>
 	<packaging>jar</packaging>
 	<name>Cos</name>
-	<version>2026.1-SNAPSHOT</version>
+	<version>cos-2026.1</version>
 	<url>https://github.com/gbetorre/cos</url>
 	<description>Cos</description>
-	
+	<!-- Properties -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     	<maven.compiler.source>8</maven.compiler.source>
     	<maven.compiler.target>8</maven.compiler.target>
 	</properties>
-	
+	<!-- Issue -->
 	<issueManagement>
 		<system>Github Issue</system>
 		<url>http://github.com/gbetorre/cos/issues</url>
 	</issueManagement>
+	<!-- License -->
 	<licenses>
 		<license>
-			<name>The Apache Software License, Version 2.0</name>
-			<url>http://apache.org/licenses/LICENSE-2.0.txt</url>
+			<name>Servlets.com</name>
+			<url>https://www.servlets.com/cos/license.html</url>
 		</license>
 	</licenses>
+	<!-- Developers -->
 	<developers>
+		<developer>
+			<id>jhunter</id>
+			<name>Jason Hunter</name>
+			<email>jhunter@servlets.com</email>
+			<url>https://www.servlets.com/jason/</url>
+		</developer>
 		<developer>
 			<id>jfinal</id>
 			<name>James</name>
 			<email>jfinal@126.com</email>
 			<url>http://weibo.com/jfinal</url>
 		</developer>
+		<developer>
+			<id>gbetorre</id>
+			<name>Gianroberto Torre</name>
+			<email>gianroberto.torre@gmail.com</email>
+			<url>https://gbetorre.github.io/</url>
+		</developer>
 	</developers>
 	<scm>
-		<connection>scm:git:git@github.com:jfinal/cos.git</connection>
-		<developerConnection>scm:git:git@github.com:jfinal/cos.git</developerConnection>
-		<url>git@github.com:jfinal/cos.git</url>
+		<connection>scm:git:git@github.com:gbetorre/cos.git</connection>
+		<developerConnection>scm:git:git@github.com:gbetorre/cos.git</developerConnection>
+		<url>git@github.com:gbetorre/cos.git</url>
 	</scm>
 
 	<repositories>
 	</repositories>
-	
+	<!-- Dependencies -->
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -48,7 +62,6 @@
 			<version>4.8.2</version>
 			<scope>test</scope>
 		</dependency>
-		
 	    <dependency>
 	        <groupId>jakarta.servlet</groupId>
 	        <artifactId>jakarta.servlet-api</artifactId>
@@ -65,12 +78,11 @@
 	
 	<build>
 		<plugins>
-
-			<!-- 安装源码到本地仓库 -->
+			<!-- Updated plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>2.1.2</version>
+				<version>3.2.1</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -81,7 +93,7 @@
 					</execution>
 				</executions>
 			</plugin>
-
+			<!-- 安装源码到本地仓库 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -91,11 +103,25 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-
+			<!-- Javadoc plugin -->
+			<plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-javadoc-plugin</artifactId>
+			  <version>3.6.3</version>
+			  <executions>
+			    <execution>
+			      <id>attach-javadocs</id>
+			      <goals>
+			      	<goal>jar</goal>
+			      </goals>
+			    </execution>
+			  </executions>
+			</plugin>
+			<!-- Updated plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-gpg-plugin</artifactId>
-				<version>1.1</version>
+				<version>3.2.4</version>
 				<executions>
 				  <execution>
 					<id>sign-artifacts</id>
@@ -109,7 +135,6 @@
 					<skip>false</skip>
 				</configuration>
 			</plugin>
-
 		</plugins>
 	</build>
 </project>
