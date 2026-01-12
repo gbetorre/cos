@@ -75,7 +75,7 @@ import java.security.Provider;
  * <p>
  * For information see http://www.javaworld.com/javatips/jw-javatip96.html
  * Note this class works with JDK 1.2 or later only.
- * <p>
+ * </p>
  * @author <b>Matt Towers</b>
  * @author Copyright &#169; 2000
  * @version 1.0, 2000/05/05

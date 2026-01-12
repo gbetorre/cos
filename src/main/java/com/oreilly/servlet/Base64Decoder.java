@@ -9,7 +9,7 @@ import java.io.*;
 /** 
  * A class to decode Base64 streams and strings.  
  * See RFC 1521 section 5.2 for details of the Base64 algorithm.
- * <p>
+ * <br>
  * This class can be used for decoding strings:
  * <blockquote><pre>
  * String encoded = "d2VibWFzdGVyOnRyeTJndWVTUw";

@@ -11,7 +11,7 @@ import java.util.*;
 /** 
  * A class to simplify HTTP applet-server communication.  It abstracts
  * the communication into messages, which can be either GET or POST.
- * <p>
+ * <br>
  * It can be used like this:
  * <blockquote><pre>
  * URL url = new URL(getCodeBase(), "/servlet/ServletName");
@@ -29,7 +29,7 @@ import java.util.*;
  * &nbsp;
  * InputStream in = msg.sendGetMessage(props);
  * </pre></blockquote>
- * <p>
+ * <br>
  * This class is loosely modeled after the ServletMessage class written 
  * by Rod McChesney of JavaSoft.
  *
@@ -144,8 +144,8 @@ public class HttpMessage {
 
   /**
    * Performs a POST request to the servlet, uploading a serialized object.
-   * <p>
-   * The servlet can receive the object in its <tt>doPost()</tt> method 
+   * <br>
+   * The servlet can receive the object in its <code>doPost()</code> method 
    * like this:
    * <pre>
    *     ObjectInputStream objin =
