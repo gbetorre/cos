@@ -26,7 +26,7 @@ import java.util.*;
  * It can be used like this:
  * <blockquote><pre>
  * String mailhost = "localhost";  // or another mail host
- * String from = "Mail Message Servlet <MailMessage@somedomain.com>";
+ * String from = "Mail Message Servlet &lt;MailMessage@somedomain.com&gt;";
  * String to = "to@somedomain.com";
  * String cc1 = "cc1@somedomain.com";
  * String cc2 = "cc2@somedomain.com";
