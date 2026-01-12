@@ -18,10 +18,10 @@ import jakarta.servlet.http.HttpServlet;
 /** 
  * A superclass for any HTTP servlet that wishes to act as an RMI server.
  * RemoteHttpServlet begins listening for RMI calls in its 
- * <tt>init()</tt> method and stops listening in its <tt>destroy()</tt> 
+ * <code>init()</code> method and stops listening in its <code>destroy()</code> 
  * method.  To register itself it uses the registry on the local machine 
- * on the port determined by <tt>getRegistryPort()</tt>.  It registers
- * under the name determined by <tt>getRegistryName()</tt>.  
+ * on the port determined by <code>getRegistryPort()</code>.  It registers
+ * under the name determined by <code>getRegistryName()</code>.  
  *
  * @see com.oreilly.servlet.RemoteDaemonHttpServlet
  *
@@ -39,7 +39,7 @@ public abstract class RemoteHttpServlet extends HttpServlet
    * Begins the servlet's RMI operations.  Causes the servlet to export
    * itself and then bind itself to the registry.  Logs any errors.
    * Subclasses that override this method must be sure to first call 
-   * <tt>super.init(config)</tt>.
+   * <code>super.init(config)</code>.
    * 
    * @param config the servlet config
    * @exception ServletException if a servlet exception occurs
@@ -58,7 +58,7 @@ public abstract class RemoteHttpServlet extends HttpServlet
   /**
    * Halts the servlet's RMI operations.  Causes the servlet to
    * unbind itself from the registry.  Logs any errors.  Subclasses that 
-   * override this method must be sure to first call <tt>super.destroy()</tt>.
+   * override this method must be sure to first call <code>super.destroy()</code>.
    */
   public void destroy() {
     unbind();
@@ -67,7 +67,7 @@ public abstract class RemoteHttpServlet extends HttpServlet
   /**
    * Returns the name under which the servlet should be bound in the
    * registry.  By default the name is the servlet's class name.  This
-   * can be overridden with the <tt>registryName</tt> init parameter.
+   * can be overridden with the <code>registryName</code> init parameter.
    *
    * @return the name under which the servlet should be bound in the registry
    */
@@ -83,7 +83,7 @@ public abstract class RemoteHttpServlet extends HttpServlet
   /**
    * Returns the port where the registry should be running.  By default 
    * the port is the default registry port (1099).  This can be 
-   * overridden with the <tt>registryPort</tt> init parameter.
+   * overridden with the <code>registryPort</code> init parameter.
    *
    * @return the port for the registry
    */
