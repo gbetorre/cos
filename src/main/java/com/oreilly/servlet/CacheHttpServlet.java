@@ -29,14 +29,14 @@ import jakarta.servlet.http.HttpServletResponse;
  * servlet's getLastModified() method.  To take advantage of this class, 
  * a servlet must:
  * <ul>
- * <li>Extend <tt>CacheHttpServlet</tt> instead of <tt>HttpServlet</tt>
- * <li>Implement a <tt>getLastModified(HttpServletRequest)</tt> method as usual
+ * <li>Extend <code>CacheHttpServlet</code> instead of <code>HttpServlet</code>
+ * <li>Implement a <code>getLastModified(HttpServletRequest)</code> method as usual
  * </ul>
- * This class uses the value returned by <tt>getLastModified()</tt> to manage 
+ * This class uses the value returned by <code>getLastModified()</code> to manage 
  * an internal cache of the servlet's output.  Before handling a request,
- * this class checks the value of <tt>getLastModified()</tt>, and if the 
+ * this class checks the value of <code>getLastModified()</code>, and if the 
  * output cache is at least as current as the servlet's last modified time, 
- * the cached output is sent without calling the servlet's <tt>doGet()</tt> 
+ * the cached output is sent without calling the servlet's <code>doGet()</code> 
  * method.
  * <p>
  * In order to be safe, if this class detects that the servlet's query 
@@ -48,7 +48,7 @@ import jakarta.servlet.http.HttpServletResponse;
  * <p>
  * No caching is performed for POST requests.  
  * <p>
- * <tt>CacheHttpServletResponse</tt> and <tt>CacheServletOutputStream</tt>
+ * <code>CacheHttpServletResponse</code> and <code>CacheServletOutputStream</code>
  * are helper classes to this class and should not be used directly.
  * <p>
  * This class has been built against Servlet API 2.2.  Using it with previous
