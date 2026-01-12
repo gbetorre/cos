@@ -36,7 +36,7 @@ public abstract class RemoteDaemonHttpServlet extends DaemonHttpServlet
    * Begins the servlet's RMI operations and begins a thread listening for
    * socket connections.
    * Subclasses that override this method must be sure to first call 
-   * <tt>super.init(config)</tt>.
+   * <code>super.init(config)</code>.
    * 
    * @param config the servlet config
    * @exception ServletException if a servlet exception occurs
@@ -55,7 +55,7 @@ public abstract class RemoteDaemonHttpServlet extends DaemonHttpServlet
   /**
    * Halts the servlet's RMI operations and halts the thread listening for
    * socket connections.  Subclasses that 
-   * override this method must be sure to first call <tt>super.destroy()</tt>.
+   * override this method must be sure to first call <code>super.destroy()</code>.
    */
   public void destroy() {
     super.destroy();
@@ -65,7 +65,7 @@ public abstract class RemoteDaemonHttpServlet extends DaemonHttpServlet
   /**
    * Returns the name under which the servlet should be bound in the
    * registry.  By default the name is the servlet's class name.  This
-   * can be overridden with the <tt>registryName</tt> init parameter.
+   * can be overridden with the <code>registryName</code> init parameter.
    *
    * @return the name under which the servlet should be bound in the registry
    */
@@ -81,7 +81,7 @@ public abstract class RemoteDaemonHttpServlet extends DaemonHttpServlet
   /**
    * Returns the port where the registry should be running.  By default 
    * the port is the default registry port (1099).  This can be 
-   * overridden with the <tt>registryPort</tt> init parameter.
+   * overridden with the <code>registryPort</code> init parameter.
    *
    * @return the port for the registry
    */
