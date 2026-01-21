@@ -1,7 +1,7 @@
 # maven #
 target
-
 logs
+settings.xml
 
 # eclipse #
 .settings
@@ -18,12 +18,6 @@ Thumbs.db
 # Package Files #
 *.war
 *.ear
-
-# idea #
-.idea
-*.iml
-
-plan.txt
 
 # Compiled class file
 *.class
@@ -59,10 +53,14 @@ replay_pid*
 *.ipr
 *.iws
 
+# idea #
+.idea
+*.iml
+
 /webapp/WEB-INF/classes/
 /webapp/WEB-INF/test-classes/
 /webapp/WEB-INF/target/
 
-a_little_config_pro.txt
-
-dev_plan.txt
+#a_little_config_pro.txt
+#plan.txt
+#dev_plan.txt
